@@ -1,0 +1,273 @@
+{
+  "deck": {
+    "name": "Java-Dex",
+    "version": "v0.1",
+    "size_mm": [
+      59,
+      91
+    ],
+    "age_reference_year": 2026
+  },
+  "cards": [
+    {
+      "id": "jd01",
+      "n": 1,
+      "type": "Hero",
+      "title": "Duke",
+      "role": "Chief Executive Mascot",
+      "stats": {
+        "startup": 6,
+        "clean": 10,
+        "community": 10,
+        "age": 30
+      }
+    },
+    {
+      "id": "jd02",
+      "n": 2,
+      "type": "Hero",
+      "title": "JobRunr",
+      "role": "Senior Task Wrangler",
+      "stats": {
+        "startup": 8,
+        "clean": 9,
+        "community": 6,
+        "age": 6
+      }
+    },
+    {
+      "id": "jd03",
+      "n": 3,
+      "type": "Hero",
+      "title": "XDEV",
+      "role": "Lead Software Craftsman",
+      "stats": {
+        "startup": 7,
+        "clean": 8,
+        "community": 4,
+        "age": 23
+      }
+    },
+    {
+      "id": "jd04",
+      "n": 4,
+      "type": "Framework",
+      "title": "Spring Boot",
+      "role": "Head of Quick Starts",
+      "stats": {
+        "startup": 4,
+        "clean": 6,
+        "community": 10,
+        "age": 12
+      }
+    },
+    {
+      "id": "jd05",
+      "n": 5,
+      "type": "Framework",
+      "title": "Hibernate",
+      "role": "Keeper of Persistent Objects",
+      "stats": {
+        "startup": 3,
+        "clean": 4,
+        "community": 9,
+        "age": 25
+      }
+    },
+    {
+      "id": "jd06",
+      "n": 6,
+      "type": "Tool",
+      "title": "Maven",
+      "role": "Royal Librarian of Dependencies",
+      "stats": {
+        "startup": 5,
+        "clean": 5,
+        "community": 9,
+        "age": 22
+      }
+    },
+    {
+      "id": "jd07",
+      "n": 7,
+      "type": "Tool",
+      "title": "Gradle",
+      "role": "Master Builder, Speed Division",
+      "stats": {
+        "startup": 4,
+        "clean": 5,
+        "community": 8,
+        "age": 18
+      }
+    },
+    {
+      "id": "jd08",
+      "n": 8,
+      "type": "Tool",
+      "title": "JUnit",
+      "role": "Chief Quality Inspector",
+      "stats": {
+        "startup": 8,
+        "clean": 9,
+        "community": 9,
+        "age": 29
+      }
+    },
+    {
+      "id": "jd09",
+      "n": 9,
+      "type": "Framework",
+      "title": "Quarkus",
+      "role": "Supersonic Startup Scout",
+      "stats": {
+        "startup": 10,
+        "clean": 8,
+        "community": 6,
+        "age": 7
+      }
+    },
+    {
+      "id": "jd10",
+      "n": 10,
+      "type": "Framework",
+      "title": "Micronaut",
+      "role": "Intern, Microservice Expedition",
+      "stats": {
+        "startup": 9,
+        "clean": 8,
+        "community": 5,
+        "age": 8
+      }
+    },
+    {
+      "id": "jd11",
+      "n": 11,
+      "type": "Framework",
+      "title": "Vaadin",
+      "role": "Captain of the Web UI",
+      "stats": {
+        "startup": 5,
+        "clean": 7,
+        "community": 6,
+        "age": 24
+      }
+    },
+    {
+      "id": "jd12",
+      "n": 12,
+      "type": "Tool",
+      "title": "Tomcat",
+      "role": "Lord of the Servlets",
+      "stats": {
+        "startup": 5,
+        "clean": 6,
+        "community": 8,
+        "age": 27
+      }
+    },
+    {
+      "id": "jd13",
+      "n": 13,
+      "type": "Tool",
+      "title": "Lombok",
+      "role": "Court Wizard of Boilerplate",
+      "stats": {
+        "startup": 8,
+        "clean": 9,
+        "community": 7,
+        "age": 17
+      }
+    },
+    {
+      "id": "jd14",
+      "n": 14,
+      "type": "Framework",
+      "title": "Jakarta EE",
+      "role": "Director of Enterprise Affairs",
+      "stats": {
+        "startup": 3,
+        "clean": 4,
+        "community": 7,
+        "age": 27
+      }
+    },
+    {
+      "id": "jd15",
+      "n": 15,
+      "type": "JVM",
+      "title": "Garbage Collector",
+      "role": "Head of Facility Cleaning",
+      "stats": {
+        "startup": 6,
+        "clean": 6,
+        "community": 7,
+        "age": 30
+      }
+    },
+    {
+      "id": "jd16",
+      "n": 16,
+      "type": "JVM",
+      "title": "Virtual Threads",
+      "role": "Weaver of a Million Threads",
+      "stats": {
+        "startup": 8,
+        "clean": 8,
+        "community": 8,
+        "age": 3
+      }
+    },
+    {
+      "id": "jd17",
+      "n": 17,
+      "type": "JVM",
+      "title": "JIT Compiler",
+      "role": "Fast-Track Alchemist",
+      "stats": {
+        "startup": 3,
+        "clean": 7,
+        "community": 5,
+        "age": 27
+      }
+    },
+    {
+      "id": "jd18",
+      "n": 18,
+      "type": "JVM",
+      "title": "JVM",
+      "role": "Chief Engine Officer",
+      "stats": {
+        "startup": 2,
+        "clean": 7,
+        "community": 10,
+        "age": 31
+      }
+    },
+    {
+      "id": "jd19",
+      "n": 19,
+      "type": "Villain",
+      "title": "NullPointerException",
+      "role": "Head of Surprise Outages",
+      "stats": {
+        "startup": 10,
+        "clean": 1,
+        "community": 10,
+        "age": 30
+      }
+    },
+    {
+      "id": "jd20",
+      "n": 20,
+      "type": "Villain",
+      "title": "Legacy Monolith",
+      "role": "Chairman of the Old Board",
+      "stats": {
+        "startup": 1,
+        "clean": 1,
+        "community": 3,
+        "age": 35
+      }
+    }
+  ]
+}
