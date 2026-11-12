@@ -20,7 +20,6 @@
         <java.version>25</java.version>
         <djl.version>0.40.0</djl.version>
         <jobrunr.version>9.0.3</jobrunr.version>
-        <perCard>5</perCard>
     </properties>
 
     <dependencyManagement>
@@ -94,31 +93,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!-- ./mvnw compile exec:java@preview : writes a few drawn training pictures per card to data/preview -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.5.0</version>
-                <executions>
-                    <execution>
-                        <id>preview</id>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                        <configuration>
-                            <mainClass>org.jobrunr.democatch.tools.SyntheticCaptureGenerator</mainClass>
-                            <arguments>
-                                <argument>--cards-dir</argument>
-                                <argument>cards</argument>
-                                <argument>--out-dir</argument>
-                                <argument>data/preview</argument>
-                                <argument>--per-card</argument>
-                                <argument>${perCard}</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

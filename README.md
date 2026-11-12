@@ -52,8 +52,6 @@ Needs JDK 25 and Maven (the wrapper is included). The first training downloads P
 
 Open http://localhost:8080, press **Train the model** (about 75 s), then hold a card in front of the webcam. The JobRunr dashboard is on http://localhost:8000/dashboard. How JobRunr, the drawn training data, the training and the classification fit together: [docs/WORKFLOW.md](docs/WORKFLOW.md).
 
-`./mvnw compile exec:java@preview` writes a few of the drawn training pictures to `data/preview/`.
-
 ## Files
 
 | Path | What it is |
