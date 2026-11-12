@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java-Dex — What card is this?</title>
+    <link rel="stylesheet" href="capture.css">
+    <style>
+        .result { margin-top: 16px; display: none; }
+        .result img { height: 160px; border-radius: 10px; }
+        .winner { display: flex; align-items: center; gap: 16px; }
+        .winner h2 { margin: 0; }
+        .prob { color: #f7b32b; font-weight: 700; }
+        .bar-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 14px; }
+        .bar { background: #22303b; border-radius: 4px; height: 14px; flex: 1; overflow: hidden; }
+        .bar > div { background: #f7b32b; height: 100%; }
+        .no { color: #ff6b6b; font-size: 14px; margin-top: 8px; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>What card is this?</h1>
+    <p>Hold a card up to the camera and press the button. Wrong guesses are visible in the top-3.</p>
+</header>
+<main>
+    <section class="camera">
+        <div class="camera-wrap">
+            <video id="video" autoplay playsinline muted></video>
+            <div class="guide"><span class="guide-label">card inside the square</span></div>
+        </div>
+        <div class="controls">
+            <button id="predictBtn" disabled>What card is this?</button>
+            <span id="status">Starting camera…</span>
+        </div>
+        <div id="result" class="result">
+            <div class="winner">
+                <img id="winnerImg" alt="winner card">
+                <div>
+                    <h2 id="winnerTitle"></h2>
+                    <span class="prob" id="winnerProb"></span>
+                </div>
+            </div>
+            <div id="top3"></div>
+        </div>
+    </section>
+</main>
+<script src="predict.js"></script>
+</body>
+</html>
