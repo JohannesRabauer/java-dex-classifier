@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java-Dex</title>
+    <link rel="stylesheet" href="capture.css">
+    <style>
+        .panel { background: #1a222a; border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; }
+        .panel h2 { margin: 0 0 8px; font-size: 18px; }
+        .panel p { margin: 4px 0; color: #9aa7b2; font-size: 14px; }
+        .progress { background: #22303b; border-radius: 6px; height: 14px; overflow: hidden; margin: 12px 0 6px; }
+        .progress > div { background: #f7b32b; height: 100%; width: 0; transition: width .3s; }
+        .hidden { display: none !important; }
+        .stage { position: relative; }
+        .stage video { display: block; }
+        /* the 3:4 window the model looks at, with the card's outline inside: put the card on it */
+        .guide { position: absolute; top: 0; bottom: 0; left: 50%; aspect-ratio: 3 / 4; transform: translateX(-50%);
+                 border: 2px dashed rgba(247, 179, 43, .45); box-sizing: border-box; pointer-events: none; }
+        .guide::after { content: ""; position: absolute; inset: 4% 11%; border: 3px solid rgba(247, 179, 43, .85);
+                        border-radius: 10px; }
+        .result { min-height: 190px; }
+        .winner { display: flex; align-items: center; gap: 16px; }
+        .winner img { height: 170px; border-radius: 10px; }
+        .winner h2 { margin: 0 0 4px; }
+        .prob { color: #f7b32b; font-weight: 700; }
+        .unsure { color: #ff9f6b; font-size: 18px; font-weight: 600; }
+        .bar-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 14px; }
+        .bar { background: #22303b; border-radius: 4px; height: 14px; flex: 1; overflow: hidden; }
+        .bar > div { background: #f7b32b; height: 100%; }
+        .links { margin-top: 16px; font-size: 13px; color: #9aa7b2; }
+        .links a { color: #f7b32b; margin-right: 12px; }
+        .linkbtn { background: none; color: #f7b32b; padding: 0; font-weight: 400; font-size: 13px; text-decoration: underline; }
+        .file { margin-top: 8px; font-size: 13px; color: #9aa7b2; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Java-Dex</h1>
+    <p>Hold a card up to the camera and line it up with the frame.</p>
+</header>
+<main>
+    <section class="camera">
+        <div class="stage">
+            <video id="video" autoplay playsinline muted></video>
+            <div class="guide"></div>
+        </div>
+        <div class="controls"><span id="status">Starting camera…</span></div>
+        <div class="file">No camera? <input type="file" id="file" accept="image/*"></div>
+    </section>
+
+    <section>
+        <div id="trainPanel" class="panel hidden">
+            <h2 id="trainTitle">No model yet</h2>
+            <p id="trainText">The model learns from pictures the app draws itself from the 20 card images: card in perspective,
+                thumb, glare, blur, noise. Nothing to photograph. Takes a few minutes the first time (it downloads PyTorch
+                and ResNet18).</p>
+            <div id="progressWrap" class="hidden">
+                <div class="progress"><div id="progressBar"></div></div>
+                <p id="phase"></p>
+            </div>
+            <div class="controls"><button id="trainBtn">Train the model</button><span id="elapsed"></span></div>
+        </div>
+
+        <div id="resultPanel" class="panel result hidden">
+            <div id="sure" class="winner hidden">
+                <img id="winnerImg" alt="detected card">
+                <div>
+                    <h2 id="winnerTitle"></h2>
+                    <span class="prob" id="winnerProb"></span>
+                </div>
+            </div>
+            <div id="unsure" class="unsure hidden">Not sure. Hold the card closer and steady.</div>
+            <div id="top3"></div>
+        </div>
+
+        <p id="modelInfo" class="links"></p>
+        <p class="links">
+            <button id="retrain" class="linkbtn hidden">Train again</button>
+            <a href="/capture.html">Add real photos</a>
+            <a href="/evaluation.html">Evaluation</a>
+            <a href="http://localhost:8000/dashboard" target="_blank">JobRunr dashboard</a>
+        </p>
+    </section>
+</main>
+<script src="detect.js"></script>
+</body>
+</html>

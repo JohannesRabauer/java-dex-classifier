@@ -2,7 +2,7 @@
 
 A small Top Trumps style card game with 20 original cards about the Java world: Duke, frameworks, build tools, parts of the JVM and a few villains. Every card has a job title, three made-up stats and one real number, the age of the project.
 
-The cards were made for a live-coding session about training an image classifier with Java, Spring AI and JobRunr. Hold a card in front of a webcam, the classifier names it, and the game plays the round. The classifier app will be added to this repository.
+The cards were made for a live-coding session about training an image classifier with Java, Spring AI and JobRunr. Hold a card in front of a webcam, the classifier names it, and the game plays the round. The classifier app is in this repository too, see [The classifier app](#the-classifier-app) and [docs/WORKFLOW.md](docs/WORKFLOW.md).
 
 ![All 20 cards](docs/contact-sheet.png)
 
@@ -42,6 +42,18 @@ Two players, 10 cards each, face down. Read the full rules in [docs/RULES.md](do
 
 Startup, Clean and Community are made up for game balance, each from 1 to 10. Age is the real age of the project in years (first release, rounded) for every card except the Legacy Monolith, which is fictional.
 
+## The classifier app
+
+Needs JDK 25 and Maven (the wrapper is included). The first training downloads PyTorch and a pretrained ResNet18 once. The training pictures are drawn locally from the card images, nothing to download or photograph.
+
+```bash
+./mvnw spring-boot:run
+```
+
+Open http://localhost:8080, press **Train the model** (about 75 s), then hold a card in front of the webcam. The JobRunr dashboard is on http://localhost:8000/dashboard. How JobRunr, the drawn training data, the training and the classification fit together: [docs/WORKFLOW.md](docs/WORKFLOW.md).
+
+`./mvnw compile exec:java@preview` writes a few of the drawn training pictures to `data/preview/`.
+
 ## Files
 
 | Path | What it is |
@@ -51,6 +63,8 @@ Startup, Clean and Community are made up for game balance, each from 1 to 10. Ag
 | `cards/png/jdNN.png` | The card fronts as 300 dpi pictures, 59 x 91 mm |
 | `cards/svg/back.svg`, `cards/png/back.png` | The back, the same on every card |
 | `docs/RULES.md` | The rules |
+| `docs/WORKFLOW.md` | How the classifier works |
+| `src/`, `pom.xml` | The classifier app (Spring Boot, JobRunr, DJL) |
 
 ## License
 

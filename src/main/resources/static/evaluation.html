@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java-Dex Evaluation</title>
+    <link rel="stylesheet" href="capture.css">
+    <style>
+        table { border-collapse: collapse; margin-top: 12px; }
+        td, th { border: 1px solid #232b33; padding: 4px 8px; font-size: 12px; }
+        .correct { background: #1d3a24; }
+        .mistake { background: #4a1f1f; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Java-Dex Evaluation</h1>
+    <p>How the classifier does on the held-out validation pictures.</p>
+</header>
+<main>
+    <section id="report">Run the evaluate job first, then reload this page.</section>
+</main>
+<script>
+(async () => {
+    const res = await fetch('/api/jobs/evaluation');
+    if (!res.ok) return;
+    const report = await res.json();
+    const cards = await (await fetch('/api/cards')).json();
+    const title = id => (cards.find(c => c.id === id) || { title: id }).title;
+
+    const el = document.getElementById('report');
+    const perClass = report.perClass.map(pc =>
+        `<tr><td>${pc.class}</td><td>${title(pc.class)}</td><td>${(pc.accuracy * 100).toFixed(1)}%</td></tr>`).join('');
+
+    const n = report.confusion.length;
+    let matrix = '<table><tr><th></th>' + report.confusion.map((_, i) => `<th>${report.perClass[i] ? report.perClass[i].class : i}</th>`).join('') + '</tr>';
+    for (let i = 0; i < n; i++) {
+        matrix += `<tr><th>${report.perClass[i] ? report.perClass[i].class : i}</th>`;
+        for (let j = 0; j < n; j++) {
+            const cls = i === j ? (report.confusion[i][j] > 0 ? 'correct' : '') : (report.confusion[i][j] > 0 ? 'mistake' : '');
+            matrix += `<td class="${cls}">${report.confusion[i][j]}</td>`;
+        }
+        matrix += '</tr>';
+    }
+    matrix += '</table>';
+
+    el.innerHTML = `
+        <h2>Overall accuracy: ${(report.overallAccuracy * 100).toFixed(1)}%</h2>
+        <table>${perClass ? '<tr><th>Card</th><th>Title</th><th>Accuracy</th></tr>' : ''}${perClass}</table>
+        <h2>Confusion matrix <small>(rows: actual card, columns: predicted card)</small></h2>
+        ${matrix}`;
+})();
+</script>
+</body>
+</html>
